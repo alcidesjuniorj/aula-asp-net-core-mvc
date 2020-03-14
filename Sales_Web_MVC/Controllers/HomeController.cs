@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Sales_Web_MVC.Models;
+using Sales_Web_MVC.Models.ViewsModels;
 
 namespace Sales_Web_MVC.Controllers
 {
