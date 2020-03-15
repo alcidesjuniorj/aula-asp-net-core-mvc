@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Sales_Web_MVC.Models;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace Sales_Web_MVC
 {
@@ -36,8 +37,7 @@ namespace Sales_Web_MVC
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<DepartmentContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DepartmentContext")));
+            services.AddDbContext<DepartmentContext>(options =>options.UseMySql(Configuration.GetConnectionString("DepartmentContext"),builder => builder.MigrationsAssembly("Sales_Web_MVC")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
